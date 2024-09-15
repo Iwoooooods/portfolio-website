@@ -1,7 +1,9 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Inter } from "next/font/google";
-import Opening from "@/components/Opening";
+// import Opening from "@/components/Opening";
+import SplashScreen from "@/components/SplashScreen";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,13 +14,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`bg-gradient-to-b from-white to-red-100 min-h-[100vh] relative ${inter.className}`}
+    <html lang="en" className="snap-y snap-mandatory scroll-smooth">
+      <body 
+        className={`min-h-[100vh] relative ${inter.className}`}
       >
-        <Opening />
-        <Navbar />
-        {children}
+        {/* <SplashScreen> */}
+          <Navbar />
+          {children}
+        {/* </SplashScreen> */}
+        <Footer />
       </body>
     </html>
   );

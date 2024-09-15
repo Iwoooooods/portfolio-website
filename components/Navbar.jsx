@@ -2,11 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { animate, easeIn, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Navbar() {
+  const linkVariants = {
+    animate: {
+      opacity: [0, 1, 1],
+      scale: [0, 1.1, 1],
+    },
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
+      times: [0, 0.66, 0.1],
+    },
+  };
+
   const topVariants = {
     closed: {
       rotate: 0,
@@ -70,26 +82,35 @@ export default function Navbar() {
   const [opened, setOpened] = useState(false);
 
   return (
-    <div className="flex items-center h-24 gap-2.5 px-2.5 sm:px-5 lg:px-10">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="flex items-center h-24 gap-2.5 px-2.5 sm:px-5 lg:px-10"
+    >
       <div className="flex items-center gap-2.5">
         <Image src="/peanut.png" alt="" width={48} height={48} />
         <span className="font-serif italic text-xl hidden sm:inline">
           Huaisen
         </span>
       </div>
-      <div className="flex items-center gap-2.5 ml-auto">
+      <motion.div className="flex items-center gap-2.5 ml-auto">
         {links.map((link) => (
-          <Link
+          <motion.div
             key={link.title}
-            href={link.href}
-            className={`${pathname === link.href ? "bg-black text-white" : ""} rounded-xl p-2 font-bold hidden sm:inline`}
+            variants={linkVariants}
+            animate="animate"
           >
-            {link.title}
-          </Link>
+            <Link
+              href={link.href}
+              className={`${pathname === link.href ? "bg-black text-white" : ""} rounded-xl p-2 font-bold hidden sm:inline`}
+            >
+              {link.title}
+            </Link>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       <div className="items-center hidden sm:flex">
-        <Link href="">
+        <Link href="https://github.com/Iwoooooods/ ">
           <Image src="/github.png" alt="social" width={24} height={24} />
         </Link>
       </div>
@@ -131,6 +152,6 @@ export default function Navbar() {
           ))}
         </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 }
