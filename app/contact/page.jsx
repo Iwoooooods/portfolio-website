@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import SplashScreen from "@/app/components/SplashScreen";
+import JumpScreen from "@/components/JumpScreen";
 
 const AnimatedSection = ({ children, className }) => {
   const ref = React.useRef(null);
@@ -30,7 +30,7 @@ export default function Contact() {
 
   return (
     <div className="h-[calc(100vh-192px)] bg-gray-100 flex flex-col justify-center items-center">
-      <SplashScreen isVisible={showSplash} />
+      <JumpScreen isVisible={showSplash} />
       <div className="container mx-auto px-4 py-8">
         <AnimatedSection>
           <h1 className="text-4xl font-bold mb-8">Contact Me</h1>
@@ -38,7 +38,7 @@ export default function Contact() {
 
         <AnimatedSection className="mb-8">
           <p className="text-lg">
-            I'm always open to new opportunities and collaborations. Feel free to reach out!
+            I&aposm always open to new opportunities and collaborations. Feel free to reach out!
           </p>
         </AnimatedSection>
 

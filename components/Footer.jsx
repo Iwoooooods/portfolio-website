@@ -22,24 +22,27 @@ export default function Footer() {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
+      if (typeof window !== 'undefined' && window.scrollY > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("scroll", toggleVisibility);
+      return () => window.removeEventListener("scroll", toggleVisibility);
+    }
   }, []);
 
   return (
@@ -115,7 +118,7 @@ export default function Footer() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Image src="/up-arrow.png" alt="" width={24} height={24}></Image>
+          <Image src="/up-arrow.png" alt="Move to top" width={24} height={24} />
         </motion.button>
       )}
     </motion.footer>

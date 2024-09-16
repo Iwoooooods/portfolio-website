@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import SplashScreen from "@/app/components/SplashScreen";
+import JumpScreen from "@/components/JumpScreen";
 import Image from "next/image";
 
 const AnimatedSection = ({ children, className }) => {
@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <div className="min-h-[100vh] bg-gray-100">
-      <SplashScreen isVisible={showSplash} />
+      <JumpScreen isVisible={showSplash} />
       <div className="flex flex-col px-4 py-8 gap-12">
         <AnimatedSection className="flex gap-4">
           <Image
@@ -42,14 +42,14 @@ export default function Home() {
             className="hidden md:block"
           />
           <div className="text-xl font-bold">
-            Hi! I'm Huaisen. I'm currently a postgraduate student at the Chinese
+            Hi! I&aposm Huaisen. I&aposm currently a postgraduate student at the Chinese
             University of Hong Kong. I was born in Changshag, the capital of
             Hunan Province, China. I finished my high school in Changsha, and
             went to North China Electric Power University for my undergraduate
             study, learning information system and information management.
             <br />
             <br />
-            I'm a tech enthusiast and a full stack developer. I'm interested in
+            I&aposm a tech enthusiast and a full stack developer. I&aposm interested in
             web development. I started my programming journey in the second year
             of my undergraduate study, learning backend development knowledge
             like database and Java. And I had my fist internship as a backend
@@ -60,7 +60,7 @@ export default function Home() {
             <br />
             After that, I tried to learn something about frontend development,
             and I found that I really enjoy the progress of building things in
-            my mind with code. I'm comfortable with both front-end and back-end
+            my mind with code. I&aposm comfortable with both front-end and back-end
             development. I think I will keep learning and put my enthusiasm in
             this field.
           </div>

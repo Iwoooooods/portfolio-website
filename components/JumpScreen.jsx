@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const SplashScreen = ({ isVisible }) => {
+const JumpScreen = ({ isVisible }) => {
   return (
     <AnimatePresence mode="wait">
       {isVisible && (
@@ -19,4 +19,4 @@ const SplashScreen = ({ isVisible }) => {
   );
 };
 
-export default SplashScreen;
+export default JumpScreen;

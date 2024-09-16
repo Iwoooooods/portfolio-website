@@ -1,3 +1,5 @@
+"use client";
+
 import {
   motion,
   useMotionValueEvent,
@@ -5,7 +7,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import ExperienceCard from "./ExperienceCard";
 
 export default function Parallax() {
@@ -30,17 +32,26 @@ export default function Parallax() {
   const topCurveProgress = useTransform(scrollYProgress, [0, 0.3], [0, curveHeight]);
   const bottomCurveProgress = useTransform(scrollYProgress, [0.7, 1], [0, curveHeight]);
 
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const topCurveVariants = {
-    initial: `M0 ${curveHeight} Q${window.innerWidth / 2} ${curveHeight} ${window.innerWidth} ${curveHeight}`,
+    initial: `M0 ${curveHeight} Q${windowWidth / 2} ${curveHeight} ${windowWidth} ${curveHeight}`,
     animate: useTransform(topCurveProgress, (progress) => 
-      `M0 ${curveHeight} Q${window.innerWidth / 2} ${curveHeight - progress} ${window.innerWidth} ${curveHeight}`
+      `M0 ${curveHeight} Q${windowWidth / 2} ${curveHeight - progress} ${windowWidth} ${curveHeight}`
     ),
   };
 
   const bottomCurveVariants = {
-    initial: `M0 0 Q${window.innerWidth / 2} 0 ${window.innerWidth} 0`,
+    initial: `M0 0 Q${windowWidth / 2} 0 ${windowWidth} 0`,
     animate: useTransform(bottomCurveProgress, (progress) => 
-      `M0 0 Q${window.innerWidth / 2} ${progress} ${window.innerWidth} 0`
+      `M0 0 Q${windowWidth / 2} ${progress} ${windowWidth} 0`
     ),
   };
 
