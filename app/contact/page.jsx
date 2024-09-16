@@ -38,7 +38,7 @@ export default function Contact() {
 
         <AnimatedSection className="mb-8">
           <p className="text-lg">
-            I&aposm always open to new opportunities and collaborations. Feel free to reach out!
+            I&apos;m always open to new opportunities and collaborations. Feel free to reach out!
           </p>
         </AnimatedSection>
 

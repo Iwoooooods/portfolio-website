@@ -75,7 +75,7 @@ export default function SplashScreen({ children }) {
       {show&&window.innerWidth>=640 ? (
         <div
           className={`h-[100vh] w-full overflow-hidden absolute flex flex-col 
-                  justify-center items-center z-40`}
+                  justify-center items-center z-40 text-xl font-bold`}
         >
           <AnimatePresence>
             {showLine1 && (
@@ -110,7 +110,7 @@ export default function SplashScreen({ children }) {
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="rounded-full border-4 border-black bg-white size-14 active:scale-90"
+              className="rounded-full border-4 border-black bg-white size-16 active:scale-90 text-xl font-bold"
               onClick={handleClick}
             >
               Click

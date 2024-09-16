@@ -32,24 +32,22 @@ export default function Home() {
   return (
     <div className="min-h-[100vh] bg-gray-100">
       <JumpScreen isVisible={showSplash} />
-      <div className="flex flex-col px-4 py-8 gap-12">
-        <AnimatedSection className="flex gap-4">
-          <Image
-            src="/images/logo.png"
+      <div className="flex flex-col px-16 py-8 gap-8">
+        <AnimatedSection className="flex gap-4 items-center">
+          <img
+            src="/intro.jpg"
             alt=""
-            width={400}
-            height={400}
-            className="hidden md:block"
+            className="hidden lg:block rounded-lg ml-16 lg:h-[450px] xl:h-[500px]"
           />
-          <div className="text-xl font-bold">
-            Hi! I&aposm Huaisen. I&aposm currently a postgraduate student at the Chinese
+          <div className="text-xl font-bold flex flex-col justify-center p-12">
+            Hi! I&apos;m Huaisen. I&apos;m currently a postgraduate student at the Chinese
             University of Hong Kong. I was born in Changshag, the capital of
             Hunan Province, China. I finished my high school in Changsha, and
             went to North China Electric Power University for my undergraduate
             study, learning information system and information management.
             <br />
             <br />
-            I&aposm a tech enthusiast and a full stack developer. I&aposm interested in
+            I&apos;m a tech enthusiast and a full stack developer. I&apos;m interested in
             web development. I started my programming journey in the second year
             of my undergraduate study, learning backend development knowledge
             like database and Java. And I had my fist internship as a backend
@@ -60,7 +58,7 @@ export default function Home() {
             <br />
             After that, I tried to learn something about frontend development,
             and I found that I really enjoy the progress of building things in
-            my mind with code. I&aposm comfortable with both front-end and back-end
+            my mind with code. I&apos;m comfortable with both front-end and back-end
             development. I think I will keep learning and put my enthusiasm in
             this field.
           </div>

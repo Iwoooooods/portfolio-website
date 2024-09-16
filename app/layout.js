@@ -15,14 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="snap-y snap-mandatory scroll-smooth">
-      <body 
-        className={`min-h-[100vh] relative ${inter.className}`}
-      >
-        {/* <SplashScreen> */}
+      <body className={`min-h-[100vh] relative ${inter.className}`}>
+        <SplashScreen>
           <Navbar />
           {children}
-        {/* </SplashScreen> */}
-        <Footer />
+          <Footer />
+        </SplashScreen>
       </body>
     </html>
   );
