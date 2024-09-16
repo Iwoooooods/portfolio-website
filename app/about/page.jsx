@@ -41,7 +41,7 @@ export default function Home() {
             height={400}
             className="hidden md:block"
           />
-          <div>
+          <div className="text-xl font-bold">
             Hi! I'm Huaisen. I'm currently a postgraduate student at the Chinese
             University of Hong Kong. I was born in Changshag, the capital of
             Hunan Province, China. I finished my high school in Changsha, and
