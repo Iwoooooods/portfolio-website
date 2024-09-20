@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function SplashScreen({ children }) {
-  const fadingTime = 500;
+  const fadingTime = 250;
   const entryTime = 1000;
 
   const splashVariants = {

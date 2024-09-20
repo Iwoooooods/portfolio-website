@@ -20,7 +20,7 @@ const AnimatedSection = ({ children, className }) => {
   );
 };
 
-export default function Contact() {
+export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="h-[calc(100vh-192px)] bg-gray-100 flex flex-col justify-center items-center">
+    <div className="h-[calc(100vh-192px) flex flex-col justify-center items-center">
       <JumpScreen isVisible={showSplash} />
       <div className="container mx-auto px-4 py-8">
         <AnimatedSection>

@@ -47,7 +47,7 @@ export default function Hero() {
   };
 
   return (
-    <motion.div className="h-[100vh] flex flex-col items-center gap-12 pt-12">
+    <motion.div className="h-[calc(100vh-192px)] flex flex-col items-center gap-12 pt-12">
       <motion.div
         variants={popupVariants}
         animate="animate"
@@ -65,7 +65,7 @@ export default function Hero() {
         variants={introVariants}
         initial="hidden"
         animate="visible"
-        className="text-center text-lg p-2.5"
+        className="text-center text-xl p-2.5 flex flex-col items-center gap-1 h-full"
       >
         <motion.p variants={textVaraints}>
           Hello, My name is{" "}
@@ -83,6 +83,14 @@ export default function Hero() {
         <motion.p variants={textVaraints}>
           I will tell you more about myself!
         </motion.p>
+        <motion.img
+          src="/down-arrow.png"
+          alt=""
+          width={24}
+          height={24}
+          variants={textVaraints}
+          className="animate-bounce rounded-full mt-auto"
+        ></motion.img>
       </motion.div>
     </motion.div>
   );

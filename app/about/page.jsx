@@ -30,37 +30,29 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-[100vh] bg-gray-100">
+    <div className="min-h-[100vh]">
       <JumpScreen isVisible={showSplash} />
-      <div className="flex flex-col px-16 py-8 gap-8">
+      <div className="flex flex-col px-16 py-8 gap-4">
         <AnimatedSection className="flex gap-4 items-center">
           <img
             src="/intro.jpg"
             alt=""
-            className="hidden lg:block rounded-lg ml-16 lg:h-[450px] xl:h-[500px]"
+            className="hidden lg:block rounded-lg ml-8 lg:h-[560px] xl:h-[640px]"
           />
-          <div className="text-xl font-bold flex flex-col justify-center p-12">
-            Hi! I&apos;m Huaisen. I&apos;m currently a postgraduate student at the Chinese
-            University of Hong Kong. I was born in Changshag, the capital of
-            Hunan Province, China. I finished my high school in Changsha, and
-            went to North China Electric Power University for my undergraduate
-            study, learning information system and information management.
+          <div className="text-xl font-bold flex flex-col justify-center p-12 ml-auto max-w-[640px]">
+            Hi! I&apos;m Huaisen, a postgraduate student at the Chinese University of Hong Kong. 
+            Originally from Changsha, China, I completed my undergraduate studies at North China 
+            Electric Power University in Information Systems and Management.
             <br />
             <br />
-            I&apos;m a tech enthusiast and a full stack developer. I&apos;m interested in
-            web development. I started my programming journey in the second year
-            of my undergraduate study, learning backend development knowledge
-            like database and Java. And I had my fist internship as a backend
-            developer in Beijing Megvii Technology, Which is quite a big company
-            and I learnt a lot of things from there like general workflow with
-            git, basic knowledge of CI/CD platform, and how to deploy a web app.
+            As a tech enthusiast and full stack developer, I&apos;m passionate about web development. 
+            My journey began with backend development, leading to an internship at Beijing Megvii 
+            Technology where I gained valuable experience in git workflows, CI/CD, and web app deployment.
             <br />
             <br />
-            After that, I tried to learn something about frontend development,
-            and I found that I really enjoy the progress of building things in
-            my mind with code. I&apos;m comfortable with both front-end and back-end
-            development. I think I will keep learning and put my enthusiasm in
-            this field.
+            Expanding into frontend development, I discovered my love for bringing ideas to life 
+            through code. Comfortable with both front-end and back-end technologies, I&apos;m committed 
+            to continuous learning and growth in this exciting field.
           </div>
         </AnimatedSection>
         <div className="flex flex-col justify-start gap-4">
@@ -69,7 +61,7 @@ export default function Home() {
               <span>North China Electricity Power University</span>
               <span className="text-xl ml-auto">2020.09 - 2024.07</span>
             </div>
-            <ul className="px-8 py-4 border-4 bg-black text-white text-lg rounded-xl">
+            <ul className="px-8 py-4 bg-black text-white text-lg rounded-xl">
               <li>
                 Learnt courses including: economics, operation management, data
                 structure, mechine learning, etc. In my undergraduate study, I
@@ -113,7 +105,7 @@ export default function Home() {
             <div className="text-xl px-6">
               Megvii Technology, Automatic Driving Department
             </div>
-            <div className="px-8 py-4 border-4 bg-black text-white text-lg rounded-xl">
+            <div className="px-8 py-4 bg-black text-white text-lg rounded-xl">
               Developed and optimized backend solutions for a data management
               platform using FastAPI (Python), focusing on storage solutions and
               architectural design. <br />• Implemented APIs and statistical
@@ -136,7 +128,7 @@ export default function Home() {
               <span className="text-xl ml-auto">2024.04 - 2024.06</span>
             </div>
             <div className="text-xl px-6">Graduation Project</div>
-            <div className="px-8 py-4 border-4 bg-black text-white text-lg rounded-xl">
+            <div className="px-8 py-4 bg-black text-white text-lg rounded-xl">
               Conducted data cleaning and preliminary EDA to explore
               inter-feature relationships within photovoltaic power generation
               data, used LOF for anomaly detection and labeling, and employed
@@ -151,7 +143,7 @@ export default function Home() {
               <span className="text-xl ml-auto">2024.07 - 2024.09</span>
             </div>
             <div className="text-xl px-6">Heartbyte AI Technology</div>
-            <div className="px-8 py-4 border-4 bg-black text-white text-lg rounded-xl">
+            <div className="px-8 py-4 bg-black text-white text-lg rounded-xl">
               Software Engineer Intern Developed an AI article creation tool
               using Next.js (React) integrated with NextUI components,
               TailwindCSS and Firebase for data storage. <br />• Collaborated
@@ -169,7 +161,7 @@ export default function Home() {
               <span>Chinese University of Hong Kong</span>
               <span className="text-xl ml-auto">2024.09 - now</span>
             </div>
-            <div className="px-8 py-4 border-4 font-bold text-xl text-center bg-black text-white rounded-xl">
+            <div className="px-8 py-4 font-bold text-xl text-center bg-black text-white rounded-xl">
               Brand new chapter in my life. I will keep moving on!
             </div>
           </AnimatedSection>
