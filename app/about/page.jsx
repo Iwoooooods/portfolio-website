@@ -55,7 +55,7 @@ export default function Home() {
             to continuous learning and growth in this exciting field.
           </div>
         </AnimatedSection>
-        <div className="flex flex-col justify-start gap-4">
+        <div className="flex flex-col justify-start gap-4 max-w-[1280px]">
           <AnimatedSection id="undergraduate">
             <div className="text-2xl font-bold px-4 flex">
               <span>North China Electricity Power University</span>
