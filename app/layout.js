@@ -16,11 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="snap-y snap-mandatory scroll-smooth">
       <body className={`min-h-[100vh] relative ${inter.className}`}>
-        {/* <SplashScreen> */}
+        <SplashScreen>
           <Navbar />
           {children}
           <Footer />
-        {/* </SplashScreen> */}
+        </SplashScreen>
       </body>
     </html>
   );

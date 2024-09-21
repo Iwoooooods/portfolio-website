@@ -35,6 +35,7 @@ export default function SplashScreen({ children }) {
   const [showLine2, setShowLine2] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showSplash, setShowSplash] = useState(false);
+  const [skipSplash, setSkipSplash] = useState(false);
 
   const handleClick = () => {
     setShowButton(false);
@@ -47,36 +48,56 @@ export default function SplashScreen({ children }) {
     }, 5000);
   };
 
+  const handleSkip = () => {
+    setShow(false);
+    setSkipSplash(true);
+  };
+
   useEffect(() => {
-    setShow(true);
-    setShowLine1(true);
-    setTimeout(() => {
-      setShowLine1(false);
-    }, showTime);
-    setTimeout(() => {
-      setShowLine2(true);
-    }, showTime + fadingTime);
-    setTimeout(
-      () => {
-        setShowLine2(false);
-      },
-      showTime * 2 + fadingTime
-    );
-    setTimeout(
-      () => {
-        setShowButton(true);
-      },
-      showTime * 2 + fadingTime * 2
-    );
-  }, []);
+    if (!skipSplash) {
+      setShow(true);
+      setShowLine1(true);
+      setTimeout(() => {
+        setShowLine1(false);
+      }, showTime);
+      setTimeout(() => {
+        setShowLine2(true);
+      }, showTime + fadingTime);
+      setTimeout(
+        () => {
+          setShowLine2(false);
+        },
+        showTime * 2 + fadingTime
+      );
+      setTimeout(
+        () => {
+          setShowButton(true);
+        },
+        showTime * 2 + fadingTime * 2
+      );
+    }
+  }, [skipSplash]);
+
+  if (skipSplash) {
+    return <>{children}</>;
+  }
 
   return (
     <>
-      {show&&window.innerWidth>=640 ? (
+      {show && window.innerWidth >= 640 ? (
         <div
           className={`h-[100vh] w-full overflow-hidden absolute flex flex-col 
                   justify-center items-center z-40 text-xl font-bold`}
         >
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute bottom-4 right-4 rounded-full border-none bg-white px-4 py-2 text-sm font-bold"
+            onClick={handleSkip}
+          >
+            Skip
+          </motion.button>
+
           <AnimatePresence>
             {showLine1 && (
               <motion.div
