@@ -133,7 +133,7 @@ export default function Parallax() {
     >
       <motion.div
         style={{ scaleY }}
-        className={`w-4 h-full top-0 absolute bg-white origin-top rounded-b-lg`}
+        className={`w-4 h-full top-0 absolute bg-white origin-top rounded-b-lg z-0`}
       ></motion.div>
       
       <svg className={`top-0 w-full h-[${curveHeight}px] bg-white`}>
@@ -144,7 +144,7 @@ export default function Parallax() {
         />
       </svg>
 
-      <motion.div className="flex flex-col justify-start items-center h-full w-full p-12 gap-12">
+      <motion.div className="flex flex-col justify-start items-center h-full w-full p-12 gap-12 z-10">
         <p className="text-center rounded-lg text-2xl font-bold self-start ml-[100px]">
           Experience
         </p>

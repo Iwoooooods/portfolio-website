@@ -63,24 +63,6 @@ export default function Home() {
     },
   };
 
-  const modalVariants = {
-    hidden: {
-      opacity: 0,
-      y: "-100vh",
-      transition: { duration: 0.5 },
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        type: "spring",
-        stiffness: 500,
-        damping: 30,
-      },
-    },
-  };
-
   useEffect(() => {
     if (showCard) {
       document.body.style.overflow = 'hidden';
@@ -102,9 +84,8 @@ export default function Home() {
   return (
     <>
       <JumpScreen isVisible={showSplash} />
-
       <motion.div
-        className={`grid grid-cols-12 grid-rows-12 min-h-[100vh] w-full mb-20 ${showCard ? "blur-sm" : ""} z-10`}
+        className={`flex flex-col items-center justify-start md:grid md:grid-cols-12 md:grid-rows-12 min-h-[100vh] w-full mb-20 ${showCard ? "blur-sm" : ""} z-10`}
         variants={containerVariants}
         initial="hidden"
         animate="show"
@@ -124,7 +105,7 @@ export default function Home() {
           />
         </motion.div>
         <motion.div
-          className="col-start-8 col-end-12 row-start-2 row-end-5 bg-black p-5 text-white font-bold w-[300px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
+          className="col-start-8 col-end-12 row-start-2 row-end-5 bg-black p-5 text-white font-bold w-full md:max-w-[300px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
           animate={{scale: [1,1.05,1]}}
           transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
@@ -133,7 +114,7 @@ export default function Home() {
           North China Electricity Power University
         </motion.div>
         <motion.div
-          className="col-start-9 col-end-12 row-start-6 row-end-12 bg-black px-5 py-10 text-white font-bold w-[300px] h-[360px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
+          className="col-start-9 col-end-12 row-start-6 row-end-12 bg-black px-5 py-10 text-white font-bold w-full md:max-w-[300px] max-h-[360px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
           animate={{scale: [1,1.05,1]}}
           transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
@@ -144,7 +125,7 @@ export default function Home() {
           <p>Backend Developer Intern</p>
         </motion.div>
         <motion.div
-          className="col-start-6 col-end-9 row-start-8 row-end-13 bg-black p-5 text-white font-bold w-[300px] h-[340px] my-4 text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
+          className="col-start-6 col-end-9 row-start-8 row-end-13 bg-black p-5 text-white font-bold w-full md:max-w-[300px] max-h-[340px] my-4 text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
           animate={{scale: [1,1.05,1]}}
           transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
@@ -154,7 +135,7 @@ export default function Home() {
           Learning
         </motion.div>
         <motion.div
-          className="col-start-2 col-end-6 row-start-9 row-end-13 bg-black p-5 text-white font-bold flex flex-col h-[270px] mr-4 text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
+          className="col-start-2 col-end-6 row-start-9 row-end-13 bg-black p-5 text-white font-bold flex flex-col w-full md:max-w-[300px] max-h-[270px] mr-4 text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
           animate={{scale: [1,1.05,1]}}
           transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
@@ -164,7 +145,7 @@ export default function Home() {
           <p className="mt-auto text-right">HeartByte AI Technology</p>
         </motion.div>
         <motion.div
-          className="col-start-2 col-end-6 row-start-5 row-end-8 bg-black p-5 text-white font-bold w-[300px] h-[225px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
+          className="col-start-2 col-end-6 row-start-5 row-end-8 bg-black p-5 text-white font-bold w-full md:max-w-[300px] max-h-[225px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
           animate={{scale: [1,1.05,1]}}
           transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
@@ -173,7 +154,7 @@ export default function Home() {
           School Broadcast Station
         </motion.div>
         <motion.div
-          className="col-start-4 col-end-7 row-start-2 row-end-6 bg-black p-5 text-white font-bold h-[180px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
+          className="col-start-4 col-end-7 row-start-2 row-end-6 bg-black p-5 text-white font-bold w-full md:max-w-[300px] max-h-[180px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
           animate={{scale: [1,1.05,1]}}
           transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
@@ -188,24 +169,7 @@ export default function Home() {
             onClick={handleBackdropClick} 
             className="fixed inset-0 bg-black bg-opacity-50 z-40 overflow-y-auto"
           >
-            <motion.div
-              variants={modalVariants}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              className="absolute top-0 left-0 transform -translate-x-1/2 w-full min-h-[80vh] bg-white z-50 shadow-xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="h-full p-8 hide-scrollbar">
-                <IntroCard cardType={cardType} />
-              </div>
-              <button
-                onClick={() => setShowCard(false)}
-                className="bg-white text-black p-2 rounded-lg absolute top-4 right-4"
-              >
-                <Image src="/error.png" alt="" width={24} height={24}></Image>
-              </button>
-            </motion.div>
+            <IntroCard cardType={cardType} setShowCard={setShowCard} />
           </div>
         )}
       </AnimatePresence>

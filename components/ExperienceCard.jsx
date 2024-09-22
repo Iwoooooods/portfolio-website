@@ -28,8 +28,7 @@ export default function ExperienceCard({ type, data }) {
                 variants={itemVariants}
                 initial="initial"
                 animate={isInView ? "animate" : ""}
-                className="flex justify-center items-center gap-4 bg-white text-black rounded-lg p-4 w-[400px]"
-                style={{ marginRight: data.marginRight }}
+                className={`flex justify-center items-center gap-4 bg-white text-black rounded-lg p-4 max-w-[400px] md:mr-[500px]`}
             >
                 <Image
                     src={data.imageSrc}
@@ -53,8 +52,7 @@ export default function ExperienceCard({ type, data }) {
                 variants={itemVariants}
                 initial="initial"
                 animate={isInView ? "animate" : ""}
-                className="flex justify-center items-center gap-4 bg-white text-black rounded-lg p-4 w-auto"
-                style={{ marginLeft: data.marginLeft, maxWidth: data.maxWidth }}
+                className={`flex justify-center items-center gap-4 bg-white text-black rounded-lg p-4 max-w-[400px] md:ml-[500px]`}
             >
                 <Link href={data.link}>
                     <div className="flex flex-col justify-center">
