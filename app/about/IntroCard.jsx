@@ -1,6 +1,6 @@
 import { Card } from "./page";
 import { useState } from "react";
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function IntroCard({ cardType }) {
   const [blur, setBlur] = useState(true);
@@ -11,12 +11,16 @@ export default function IntroCard({ cardType }) {
 
   if (cardType === Card.UNDERGRADUATE) {
     return (
-      <div className="flex flex-col items-center justify-start h-full w-full gap-8 text-black bg-white font-bold top-10 relative">
+      <div className="flex flex-col items-center justify-start h-full w-full gap-8 text-black bg-white font-bold">
         <div className="text-center text-4xl">
           North China Electricity Power University
         </div>
         <div className="flex items-start justify-center w-full gap-8 px-24">
-          <img src="/me.jpg" alt="me" className="w-[280px]" />
+          <img
+            src="/me.jpg"
+            alt="me"
+            className="my-auto xl:w-[320px] lg:w-[280px] hidden lg:block"
+          />
           <div className="flex flex-col items-start justify-start gap-4 h-full">
             <div className="text-3xl">
               Bachelor of Enginner,
@@ -58,7 +62,7 @@ export default function IntroCard({ cardType }) {
     );
   } else if (cardType === Card.INTERNSHIP_1) {
     return (
-      <div className="flex flex-col items-start justify-start h-full w-full gap-4 text-black bg-white font-bold top-10 relative px-16">
+      <div className="flex flex-col items-start justify-start h-full w-full gap-4 text-black bg-white font-bold">
         <div className="text-4xl max-w-[700px]">
           Beijing Megvii Technology Co., Ltd. Megvii Intelligence
         </div>
@@ -72,7 +76,11 @@ export default function IntroCard({ cardType }) {
           </span>
         </div>
         <div className="flex items-start justify-start w-full gap-12">
-          <img src="/maichi.jpg" alt="me" className="max-w-[540px]" />
+          <img
+            src="/maichi.jpg"
+            alt="me"
+            className="hidden lg:block lg:w-[450px] xl:w-[540px]"
+          />
           <div className="flex flex-col items-start justify-start gap-4 h-full text-xl">
             <ul className="list-disc list-inside">
               <li>
@@ -98,23 +106,22 @@ export default function IntroCard({ cardType }) {
     return (
       <div className="flex flex-col items-start justify-start h-full w-full gap-4 text-black bg-white font-bold p-16">
         <h2 className="text-4xl max-w-[700px] mb-4">
-          Solar Power Generation Prediction and Anomaly Detection Using Deep Learning
+          Solar Power Generation Prediction and Anomaly Detection Using Deep
+          Learning
         </h2>
-        <div className="flex flex-wrap items-start gap-8">
-          <Image
-            src="/thesis.png"
-            alt="Thesis project visualization"
-            width={600}
-            height={300}
-            className="float-left mr-8 mb-4"
-          />
-          <p className="flex-1 max-w-[300px] text-xl">
+        <div className="w-full flex items-start justify-center gap-8">
+          <p className="max-w-[400px] text-xl">
             Conducted data cleaning and preliminary EDA to explore inter-feature
             relationships within photovoltaic power generation data, used LOF
             for anomaly detection and labeling, and employed PCA for
             dimensionality reduction and Random Forest for classification,
             followed by LSTM for predicting future power generation.
           </p>
+          <img
+            src="/thesis.png"
+            alt="Thesis project visualization"
+            className="xl:w-[600px] lg:w-[540px] hidden lg:block"
+          />
         </div>
       </div>
     );
@@ -160,10 +167,30 @@ export default function IntroCard({ cardType }) {
         </div>
       </div>
     );
+  } else if (cardType === Card.EXTRACURRICULAR) {
+    return (
+      <div className="flex flex-col items-start justify-start h-full w-full gap-4 text-black bg-white font-bold">
+        <div className="text-4xl">
+          School Broadcast Station, <span className="text-3xl">Promotion Department</span> 
+        </div>
+        <div className="text-xl">
+          Created Posters and Promotional Videos Using Editing Software Like
+          Photoshop (PS), and Filmed Promotional Videos for Various Campus
+          Competitions. Managed the daily operations of the campus radio
+          station’s WeChat public account and Weibo, as well as the production
+          of a campus blog, accumulating over 9,000 followers.
+        </div>
+        <img src="/broadcast.jpg" alt="broadcast" className="xl:w-[720px] lg:w-[600px] hidden lg:block mx-auto" />
+      </div>
+    );
+  }else{
+    return (
+      <div className="flex items-center justify-center h-full w-full">
+        <div className="text-center text-4xl font-bold">
+          Story Continues...
+        </div>
+      </div>
+    );
   }
-  return (
-    <div>
-      <h1>Card</h1>
-    </div>
-  );
+  
 }

@@ -45,7 +45,22 @@ export default function Home() {
 
   const childVariants = {
     hidden: { opacity: 0, y: 20 }, // Start hidden and slightly below
-    show: { opacity: 1, y: 0, transition: { duration: 1 } }, // Fade in and move to original position with duration
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 1,
+        // Add breathing animation
+        scale: {
+          repeat: Infinity,
+          // repeatType: "reverse",
+          // from: 1,
+          // to: 1.05,
+          // duration: 2,
+          ease: "easeInOut"
+        }
+      }
+    },
   };
 
   const modalVariants = {
@@ -66,6 +81,18 @@ export default function Home() {
     },
   };
 
+  useEffect(() => {
+    if (showCard) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showCard]);
+
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       setShowCard(false);
@@ -85,6 +112,8 @@ export default function Home() {
         <motion.div
           className="col-start-6 col-end-8 row-start-5 row-end-8 items-center justify-center hidden lg:flex"
           variants={childVariants} // Apply child variants
+          // animate={{scale: [1,1.1,1]}}
+          // transition={{repeat: Infinity, duration: 2}}
         >
           <Image
             src="/manga-head.jpg"
@@ -97,6 +126,8 @@ export default function Home() {
         <motion.div
           className="col-start-8 col-end-12 row-start-2 row-end-5 bg-black p-5 text-white font-bold w-[300px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
+          animate={{scale: [1,1.05,1]}}
+          transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
           onClick={(e) => handleClick(e, Card.UNDERGRADUATE)} // Click handler
         >
           North China Electricity Power University
@@ -104,6 +135,8 @@ export default function Home() {
         <motion.div
           className="col-start-9 col-end-12 row-start-6 row-end-12 bg-black px-5 py-10 text-white font-bold w-[300px] h-[360px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
+          animate={{scale: [1,1.05,1]}}
+          transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
           onClick={(e) => handleClick(e, Card.INTERNSHIP_1)} // Click handler
         >
           <p>Megvii Technology, Beijing</p>
@@ -113,6 +146,8 @@ export default function Home() {
         <motion.div
           className="col-start-6 col-end-9 row-start-8 row-end-13 bg-black p-5 text-white font-bold w-[300px] h-[340px] my-4 text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
+          animate={{scale: [1,1.05,1]}}
+          transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
           onClick={(e) => handleClick(e, Card.PROJECT)} // Click handler
         >
           Solar Power Generation Prediction and Anomaly Detection Using Deep
@@ -121,6 +156,8 @@ export default function Home() {
         <motion.div
           className="col-start-2 col-end-6 row-start-9 row-end-13 bg-black p-5 text-white font-bold flex flex-col h-[270px] mr-4 text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
+          animate={{scale: [1,1.05,1]}}
+          transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
           onClick={(e) => handleClick(e, Card.INTERNSHIP_2)} // Click handler
         >
           <p>Full-Stack Developer Intern</p>
@@ -129,6 +166,8 @@ export default function Home() {
         <motion.div
           className="col-start-2 col-end-6 row-start-5 row-end-8 bg-black p-5 text-white font-bold w-[300px] h-[225px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
+          animate={{scale: [1,1.05,1]}}
+          transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
           onClick={(e) => handleClick(e, Card.EXTRACURRICULAR)} // Click handler
         >
           School Broadcast Station
@@ -136,6 +175,8 @@ export default function Home() {
         <motion.div
           className="col-start-4 col-end-7 row-start-2 row-end-6 bg-black p-5 text-white font-bold h-[180px] text-3xl xl:text-4xl hover:!scale-105 cursor-pointer" // Responsive text size and hover effect
           variants={childVariants} // Apply child variants
+          animate={{scale: [1,1.05,1]}}
+          transition={{repeat: Infinity, duration: 2, ease: "easeInOut"}}
           onClick={(e) => handleClick(e, Card.POSTGRADUATE)} // Click handler
         >
           Chinese University of Hong Kong
@@ -145,17 +186,19 @@ export default function Home() {
         {showCard && (
           <div 
             onClick={handleBackdropClick} 
-            className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40"
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 overflow-y-auto"
           >
             <motion.div
               variants={modalVariants}
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="fixed top-0 left-0 w-full h-[80vh] bg-white flex items-center justify-center z-50 overflow-hidden"
+              className="absolute top-0 left-0 transform -translate-x-1/2 w-full min-h-[80vh] bg-white z-50 shadow-xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <IntroCard cardType={cardType} />
+              <div className="h-full p-8 hide-scrollbar">
+                <IntroCard cardType={cardType} />
+              </div>
               <button
                 onClick={() => setShowCard(false)}
                 className="bg-white text-black p-2 rounded-lg absolute top-4 right-4"
